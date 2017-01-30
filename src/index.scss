@@ -23,12 +23,19 @@
     padding-bottom: 56.25%; /* 16:9 */
     padding-top: 25px;
     background-size: cover;
+    cursor: pointer;
 
-    .play-button {
+    .play-button-wrapper {
       position: absolute;
-      // top: 0;
-      padding-bottom: 56.25%; /* 16:9 */
-      padding-top: 25px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      .default-play-button {
+        color: white;
+        font-size: 35px;
+        user-select: none;
+      }
     }
   }
 }

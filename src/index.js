@@ -17,7 +17,6 @@ const install = (Vue, options = {}) => {
     data () {
       return {
         isBuffering: false,
-        overlayEnabled: true,
         stored: null,
         status: '',
         player: null,
@@ -87,6 +86,32 @@ const install = (Vue, options = {}) => {
       },
       totalTime () {
         return this.stored ? this.stored.totalTime : 0
+      },
+      overlayEnabled () {
+        if (this.player) {
+          const state = this.player.state
+          const mode = this.overlayMode
+
+          switch (mode) {
+            case 'before':
+              return [
+                PlayerState.LOADING,
+                PlayerState.LOADED,
+                PlayerState.UNSTARTED
+              ].includes(state)
+            case 'beforeAndAfter':
+              return [
+                PlayerState.LOADING,
+                PlayerState.LOADED,
+                PlayerState.UNSTARTED,
+                PlayerState.ENDED
+              ].includes(state)
+            default:
+              return false
+          }
+        } else {
+          return true
+        }
       }
     },
     watch: {

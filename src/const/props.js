@@ -8,6 +8,16 @@ export default {
       type: String,
       default: ''
     },
+    overlayMode: {
+      type: String,
+      default: 'beforeAndAfter',
+      validator (value) {
+        return [
+          'before',
+          'beforeAndAfter'
+        ].includes(value)
+      }
+    },
     locale: {
       type: String,
       default: ''

@@ -7,7 +7,12 @@
     v-if="thumbnail.length"
     v-show="overlayEnabled"
     :style="{ backgroundImage: `url('${thumbnail}')` }"
+    @click="player.play()"
   >
-    <button class="play-button" @click="initialPlay">Play</button>
+    <div class="play-button-wrapper">
+      <slot>
+        <span class="default-play-button">&#9654;</span>
+      </slot>
+    </div>
   </div>
 </div>
