@@ -10,9 +10,10 @@ export default {
     },
     overlayMode: {
       type: String,
-      default: 'beforeAndAfter',
+      default: 'off',
       validator (value) {
         return [
+          'off',
           'before',
           'beforeAndAfter'
         ].includes(value)

@@ -93,6 +93,8 @@ const install = (Vue, options = {}) => {
           const mode = this.overlayMode
 
           switch (mode) {
+            case 'off':
+              return false
             case 'before':
               return [
                 PlayerState.LOADING,
@@ -111,6 +113,17 @@ const install = (Vue, options = {}) => {
           }
         } else {
           return true
+        }
+      },
+      overlayStyle () {
+        if (this.thumbnail.length) {
+          return {
+            backgroundImage: `url(${this.thumbnail})`
+          }
+        } else {
+          return {
+            backgroundColor: 'black'
+          }
         }
       }
     },

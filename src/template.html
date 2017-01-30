@@ -4,9 +4,8 @@
   </div>
   <div
     class="overlay"
-    v-if="thumbnail.length"
     v-show="overlayEnabled"
-    :style="{ backgroundImage: `url('${thumbnail}')` }"
+    :style="overlayStyle"
     @click="player.play()"
   >
     <div class="play-button-wrapper">
