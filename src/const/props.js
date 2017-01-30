@@ -4,6 +4,10 @@ export default {
       type: String,
       required: true
     },
+    thumbnail: {
+      type: String,
+      default: ''
+    },
     locale: {
       type: String,
       default: ''

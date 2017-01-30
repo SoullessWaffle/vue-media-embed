@@ -17,6 +17,7 @@ const install = (Vue, options = {}) => {
     data () {
       return {
         isBuffering: false,
+        overlayEnabled: true,
         stored: null,
         status: '',
         player: null,
@@ -39,6 +40,12 @@ const install = (Vue, options = {}) => {
       this.player = null
     },
     methods: {
+      initialPlay () {
+        if (this.player) {
+          this.player.play()
+          this.overlayEnabled = false
+        }
+      },
       track (add) {
         clearInterval(this.interval)
         if (!add) return
