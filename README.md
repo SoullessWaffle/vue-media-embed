@@ -43,7 +43,7 @@ By default the overlay has a black background. You can give it an image to displ
 <vue-media-embed
   source="youtube://C6vinrXWxls"
   overlayMode="before"
-  thumbnail="https://i.redd.it/2jsbryjusg2y.png"
+  poster="https://i.redd.it/2jsbryjusg2y.png"
 />
 ```
 
@@ -52,7 +52,7 @@ And you can use a custom play button element
 <vue-media-embed
   source="youtube://C6vinrXWxls"
   overlayMode="before"
-  thumbnail="https://i.redd.it/2jsbryjusg2y.png"
+  poster="https://i.redd.it/2jsbryjusg2y.png"
 >
   <button>Fancy play button</button>
 </vue-media-embed>
@@ -65,7 +65,7 @@ And you can use a custom play button element
 | auto-play | Start playing automatically when player is loaded | 0 | 1 |
 | auto-pause | Pause player when another player starts playing | 1 | 0 |
 | related | Show related content | 0 | 1 |
-| thumbnail | The url of the thumbnail image displayed on the overlay | '' | '/assets/img/thumbnail.png' |
+| poster | The url of the poster image displayed on the overlay | '' | '/assets/img/poster.png' |
 | overlayMode | Determines when the overlay shows up | 'off' | 'before' |
 
 #### overlayMode values

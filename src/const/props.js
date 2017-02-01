@@ -4,7 +4,7 @@ export default {
       type: String,
       required: true
     },
-    thumbnail: {
+    poster: {
       type: String,
       default: ''
     },

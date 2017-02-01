@@ -115,9 +115,9 @@ const install = (Vue, options = {}) => {
         }
       },
       overlayStyle () {
-        if (this.thumbnail.length) {
+        if (this.poster.length) {
           return {
-            backgroundImage: `url(${this.thumbnail})`
+            backgroundImage: `url(${this.poster})`
           }
         } else {
           return {
