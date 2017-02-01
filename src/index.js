@@ -42,7 +42,6 @@ const install = (Vue, options = {}) => {
       initialPlay () {
         if (this.player) {
           this.player.play()
-          this.overlayEnabled = false
         }
       },
       track (add) {

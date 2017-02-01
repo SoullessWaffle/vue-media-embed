@@ -6,7 +6,7 @@
     class="overlay"
     v-show="overlayEnabled"
     :style="overlayStyle"
-    @click="player.play()"
+    @click="initialPlay"
   >
     <div class="play-button-wrapper">
       <slot>
