@@ -1,16 +1,19 @@
- vue media embed
+# vue-media-embed
+
 Embed for YouTube, Vimeo and SoundCloud
+
 This plugin requires [Vuex](https://www.npmjs.com/package/vuex)
+
 ### Features
 - Auto pause players
 - Restore previous state from store
 
 ### Installation
-```
-npm install vue-media-embed
+```bash
+$ npm install vue-media-embed
 ```
 ### Usage
-```
+```js
 import Vue from 'vue'
 import VueMediaEmbed from 'vue-media-embed'
 import Vuex from 'vuex'
@@ -22,12 +25,38 @@ Vue.use(VueMediaEmbed, { store })
 ```
 ### Example
 In this example we embed 3 players
-```
+```vue
 <vue-media-embed source="soundcloud://295067272" :auto-play="1" :allow-fullscreen="0" />
 <vue-media-embed source="youtube://C6vinrXWxls" :auto-play="0" :allow-fullscreen="1" />
 <vue-media-embed source="vimeo://70114668" :auto-play="0" :allow-fullscreen="0" />
 ```
-sources like http://vimeo.com/190613094 and https://www.youtube.com/watch?.. or https://youtu.be/{ID} are fine too
+Sources like http://vimeo.com/190613094 and https://www.youtube.com/watch?.. or https://youtu.be/{ID} are fine too
+
+### Overlay
+You can display an overlay over the player that will start playback when clicked
+```vue
+<vue-media-embed source="youtube://C6vinrXWxls" overlayMode="before" />
+```
+
+By default the overlay has a black background. You can give it an image to display instead
+```vue
+<vue-media-embed
+  source="youtube://C6vinrXWxls"
+  overlayMode="before"
+  thumbnail="https://i.redd.it/2jsbryjusg2y.png"
+/>
+```
+
+And you can use a custom play button element
+```vue
+<vue-media-embed
+  source="youtube://C6vinrXWxls"
+  overlayMode="before"
+  thumbnail="https://i.redd.it/2jsbryjusg2y.png"
+>
+  <button>Fancy play button</button>
+</vue-media-embed>
+```
 
 ### Overall props
 | Property | Description | Default| Example |
@@ -36,6 +65,16 @@ sources like http://vimeo.com/190613094 and https://www.youtube.com/watch?.. or 
 | auto-play | Start playing automatically when player is loaded | 0 | 1 |
 | auto-pause | Pause player when another player starts playing | 1 | 0 |
 | related | Show related content | 0 | 1 |
+| thumbnail | The url of the thumbnail image displayed on the overlay | '' | '/assets/img/thumbnail.png' |
+| overlayMode | Determines when the overlay shows up | 'off' | 'before' |
+
+#### overlayMode values
+
+| Value | Description |
+| ----- | ----------- |
+| 'off' | The overlay is completely disabled |
+| 'before' | The overlay shows up before playing the media |
+| 'beforeAndAfter' | The overlay shows up before playing the media and after it ends |
 
 ### SoundCloud
 

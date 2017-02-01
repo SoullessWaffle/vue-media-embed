@@ -39,6 +39,11 @@ const install = (Vue, options = {}) => {
       this.player = null
     },
     methods: {
+      initialPlay () {
+        if (this.player) {
+          this.player.play()
+        }
+      },
       track (add) {
         clearInterval(this.interval)
         if (!add) return
@@ -80,6 +85,45 @@ const install = (Vue, options = {}) => {
       },
       totalTime () {
         return this.stored ? this.stored.totalTime : 0
+      },
+      overlayEnabled () {
+        if (this.player) {
+          const state = this.player.state
+          const mode = this.overlayMode
+
+          switch (mode) {
+            case 'off':
+              return false
+            case 'before':
+              return [
+                PlayerState.LOADING,
+                PlayerState.LOADED,
+                PlayerState.UNSTARTED
+              ].includes(state)
+            case 'beforeAndAfter':
+              return [
+                PlayerState.LOADING,
+                PlayerState.LOADED,
+                PlayerState.UNSTARTED,
+                PlayerState.ENDED
+              ].includes(state)
+            default:
+              return false
+          }
+        } else {
+          return true
+        }
+      },
+      overlayStyle () {
+        if (this.thumbnail.length) {
+          return {
+            backgroundImage: `url(${this.thumbnail})`
+          }
+        } else {
+          return {
+            backgroundColor: 'black'
+          }
+        }
       }
     },
     watch: {

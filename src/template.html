@@ -2,4 +2,16 @@
   <div class="wrapper">
     <div class="player"></div>
   </div>
+  <div
+    class="overlay"
+    v-show="overlayEnabled"
+    :style="overlayStyle"
+    @click="initialPlay"
+  >
+    <div class="play-button-wrapper">
+      <slot>
+        <span class="default-play-button">&#9654;</span>
+      </slot>
+    </div>
+  </div>
 </div>

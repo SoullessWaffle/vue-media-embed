@@ -4,6 +4,21 @@ export default {
       type: String,
       required: true
     },
+    thumbnail: {
+      type: String,
+      default: ''
+    },
+    overlayMode: {
+      type: String,
+      default: 'off',
+      validator (value) {
+        return [
+          'off',
+          'before',
+          'beforeAndAfter'
+        ].includes(value)
+      }
+    },
     locale: {
       type: String,
       default: ''
